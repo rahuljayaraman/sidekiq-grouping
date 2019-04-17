@@ -11,7 +11,7 @@ module Sidekiq
           options.key?('batch_size')
 
         if (defined?(Sidekiq::Testing) && Sidekiq::Testing.inline?)
-          msg['args'] = [msg['args']] if batch
+          msg['args'] = [[msg['args']]] if batch
           return yield
         end
 
